@@ -1,0 +1,29 @@
+=================== Description ================
+This plugins generate a small section below issues attributes and above issue
+description that will display total spent time of this issue with the following
+4 fields:
+
+* Spent time of this ticket - Total spent time of this issue (excluding subtask)
+* Spent time of subtasks - Total spent time of this issue's subtask
+* Spent time of estimated - Total estimated time spent by assigned worker
+* Spent time of helper - Total spent time of within that issue by anyone not assigned to this ticket
+
+
+================== Installation ================
+
+Just copy this plugin into vendor/plugins/
+
+
+
+========== About me and this plugin ============
+
+Author: Jacky Leung
+
+I am a developer station in New Zealand, this plugin is an utilities
+aim to assist my works to estimate time better. So the design created
+is more specifically aim toward the structure of my current works place.
+
+As I have limited experience with Ruby on Rails plus this is my first
+open sources code. I am welcoming any open suggestion, optimization,
+improvements, and ideas that can helps make this plugins become more
+suitable for anyone.
