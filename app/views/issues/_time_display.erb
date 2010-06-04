@@ -1,0 +1,16 @@
+<table class="attributes">
+  <tr>
+    <th colspan="4"><hr /></th>
+  </tr>
+  <tr>
+    <td colspan="4"><p><strong>Spent Time</strong></p></td>
+  </tr>
+  <tr>
+    <th class="self">Spent time of this ticket:</th><td class="self-hours"><%= l_hours(@issue.self_spent_hours) %></td>
+    <th class="subtask">Spent time of subtasks:</th><td class="subtask-hours"><%= l_hours(@issue.subtask_spent_hours) %></td>
+  </tr>
+  <tr>
+    <th class="assgined">Spent time of assigned (Estimated spent%):</th><td class="assigned-hours"><%= l_hours(@issue.assigned_spent_hours) %> (<%= @issue.estimated_spent %> %)</td>
+    <th class="helper">Spent time of helper:</th><td class="helper-hours"><%= l_hours(@issue.helper_spent_hours) %></td>
+  </tr>
+</table>
