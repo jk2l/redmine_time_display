@@ -19,29 +19,11 @@ module IssuePatch
 
   module InstanceMethods
     def helper_spent_hours
-      times = TimeEntry.find(:all, :conditions => "user_id != '#{assigned_to_id}' AND issue_id = '#{id}'")
-      if times.size == 0
-        @helper_spent_hours = 0.00
-      else
-        total = 0.00
-        for time in times
-          total = total + time.hours
-        end
-        @helper_spent_hours ||= total || 0.00
-      end
+      @helper_spent_hours = TimeEntry.sum :hours, :conditions => "user_id != '#{assigned_to_id}' AND issue_id = '#{id}'"
     end
 
     def assigned_spent_hours
-      times = TimeEntry.find(:all, :conditions => "user_id = '#{assigned_to_id}' AND issue_id = '#{id}'")
-      if times.size == 0
-        @assigned_spent_hours = 0.00
-      else
-        total = 0.00
-        for time in times
-          total = total + time.hours
-        end
-        @assigned_spent_hours ||= total || 0.00
-      end
+      @assigned_spent_hours = TimeEntry.sum :hours, :conditions => "user_id = '#{assigned_to_id}' AND issue_id = '#{id}'"
     end
 
     def self_spent_hours

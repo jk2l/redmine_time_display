@@ -3,6 +3,7 @@ require 'redmine'
 require_dependency 'issue_patch'
 require_dependency 'time_display_hook'
 
+require 'dispatcher'
 Dispatcher.to_prepare do
   Issue.send(:include, IssuePatch)
 end
