@@ -19,11 +19,11 @@ module IssuePatch
 
   module InstanceMethods
     def helper_spent_hours
-      @helper_spent_hours = TimeEntry.sum :hours, :conditions => "user_id != '#{assigned_to_id}' AND issue_id = '#{id}'"
+      @helper_spent_hours = TimeEntry.sum :hours, :conditions => "user_id != #{assigned_to_id.to_i} AND issue_id = '#{id}'"
     end
 
     def assigned_spent_hours
-      @assigned_spent_hours = TimeEntry.sum :hours, :conditions => "user_id = '#{assigned_to_id}' AND issue_id = '#{id}'"
+      @assigned_spent_hours = TimeEntry.sum :hours, :conditions => "user_id = #{assigned_to_id.to_i} AND issue_id = '#{id}'"
     end
 
     def self_spent_hours
