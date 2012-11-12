@@ -31,8 +31,11 @@ module IssuePatch
     end
 
     def subtask_spent_hours
-      all_time = self_and_descendants.sum("#{TimeEntry.table_name}.hours", :include => :time_entries).to_f 
-      @subtask_spent_hours ||= all_time - time_entries.sum(:hours) || 0.00
+      time = 0.00
+      i.descendants.each do |i|
+        time = time + i.time_entries.sum(:hours)
+      end
+      @subtask_spent_hours = time.to_f
     end
 
     def estimated_spent
